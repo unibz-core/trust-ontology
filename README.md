@@ -6,7 +6,7 @@ ROT is a well-founded reference ontology, specified in OntoUML, that formally ch
 
 * [/diagrams](/diagrama) contains figures depicting ROT.
 * [/models](/models) ROT source file in OWL.
-* [ROT_0720.vpl] ROT source file in OntoUML.
+* ROT_0720.vpl -  ROT source file in OntoUML.
 
 ## Reusing .vpl files
 
