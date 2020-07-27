@@ -5,7 +5,8 @@ ROT is a well-founded reference ontology, specified in OntoUML, that formally ch
 ## Project Structure
 
 * [/diagrams](/diagrama) contains figures depicting ROT.
-* [/models](/models) 
+* [/models](/models) ROT source file in OWL.
+* [ROT_0720.vpl] ROT source file in OntoUML.
 
 ## Reusing .vpl files
 
