@@ -1,0 +1,1339 @@
+@prefix : <https://purl.org/krdb-core/rot#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rot: <https://purl.org/krdb-core/rot#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix gufo: <http://purl.org/nemo/gufo#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://purl.org/krdb-core/rot> .
+
+<https://purl.org/krdb-core/rot> rdf:type owl:Ontology ;
+                                  owl:imports gufo: ;
+                                  <http://purl.org/dc/elements/1.1/creator> "Amaral, Glenda" ,
+                                                                            "Guizzardi, Giancarlo" ,
+                                                                            "Porello, Daniele" ,
+                                                                            "Sales, Tiago Prince" ;
+                                  <http://purl.org/dc/elements/1.1/date> "2019-09-13" ;
+                                  <http://purl.org/dc/elements/1.1/rights> "This work is distributed under Creative Commons Attribution License CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/legalcode>"@en ;
+                                  <http://purl.org/dc/elements/1.1/title> "Reference Ontology of Trust"@en ;
+                                  rdfs:comment "The Reference Ontology of Trust (ROT) is a well-founded reference ontology, originally developed in OntoUML, that formally characterizes the concept of trust, as well as clarifies the relation between trust and risk, and represents how risk emerges from trust relations."@en ;
+                                  rdfs:label "Reference Ontology of Trust"@en .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://purl.org/krdb-core/rot#basedOnTrust
+rot:basedOnTrust rdf:type owl:ObjectProperty ;
+                 rdfs:domain rot:TrustorAction ;
+                 rdfs:range rot:Trust ;
+                 rdfs:label "based on trust" .
+
+
+###  https://purl.org/krdb-core/rot#beliefDependsOnTrustee
+rot:beliefDependsOnTrustee rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf gufo:externallyDependsOn ;
+                           rdfs:domain rot:DispositionBelief ;
+                           rdfs:range rot:Trustee ;
+                           rdfs:label "belief depends on trustee" .
+
+
+###  https://purl.org/krdb-core/rot#broughtAboutHazardousSituation
+rot:broughtAboutHazardousSituation rdf:type owl:ObjectProperty ;
+                                   rdfs:subPropertyOf gufo:broughtAbout ;
+                                   rdfs:domain rot:TrustorAction ;
+                                   rdfs:range rot:HazardousSituation ;
+                                   rdfs:label "brought about hazardous situation" .
+
+
+###  https://purl.org/krdb-core/rot#broughtAboutLossSituation
+rot:broughtAboutLossSituation rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf gufo:broughtAbout ;
+                              rdfs:domain rot:LossEvent ;
+                              rdfs:range rot:LossSituation ;
+                              rdfs:label "brought about loss situation" .
+
+
+###  https://purl.org/krdb-core/rot#causedLossEvent
+rot:causedLossEvent rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf gufo:historicallyDependsOn ;
+                    rdfs:domain rot:ThreatEvent ;
+                    rdfs:range rot:LossEvent ;
+                    rdfs:label "caused loss event" .
+
+
+###  https://purl.org/krdb-core/rot#contributedToTriggerThreatEvent
+rot:contributedToTriggerThreatEvent rdf:type owl:ObjectProperty ;
+                                    rdfs:subPropertyOf gufo:contributedToTrigger ;
+                                    rdfs:domain rot:HazardousSituation ;
+                                    rdfs:range rot:ThreatEvent ;
+                                    rdfs:label "contributed to trigger threat event" .
+
+
+###  https://purl.org/krdb-core/rot#dependsOnAgentTrustee
+rot:dependsOnAgentTrustee rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf gufo:externallyDependsOn ;
+                          rdfs:domain rot:SocialTrust ;
+                          rdfs:range rot:AgentTrustee ;
+                          rdfs:label "depends on agent trustee" .
+
+
+###  https://purl.org/krdb-core/rot#dependsOnCapability
+rot:dependsOnCapability rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf gufo:externallyDependsOn ;
+                        rdfs:domain rot:CapabilityBelief ;
+                        rdfs:range rot:Capability ;
+                        rdfs:label "depends on capability" .
+
+
+###  https://purl.org/krdb-core/rot#dependsOnDisposition
+rot:dependsOnDisposition rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf gufo:externallyDependsOn ;
+                         rdfs:domain rot:DispositionBelief ;
+                         rdfs:range rot:Disposition ;
+                         rdfs:label "depends on disposition" .
+
+
+###  https://purl.org/krdb-core/rot#dependsOnIntention
+rot:dependsOnIntention rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf gufo:externallyDependsOn ;
+                       rdfs:domain rot:IntentionBelief ;
+                       rdfs:range rot:Intention ;
+                       rdfs:label "depends on intention" .
+
+
+###  https://purl.org/krdb-core/rot#dependsOnObject
+rot:dependsOnObject rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf gufo:externallyDependsOn ;
+                    rdfs:domain rot:AspectualBelief ;
+                    rdfs:range gufo:Object ;
+                    rdfs:label "depends on object" .
+
+
+###  https://purl.org/krdb-core/rot#dependsOnSystemTrustee
+rot:dependsOnSystemTrustee rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf gufo:externallyDependsOn ;
+                           rdfs:domain rot:InstitutionBasedTrust ;
+                           rdfs:range rot:SocialSystemTrustee ;
+                           rdfs:label "depends on system trustee" .
+
+
+###  https://purl.org/krdb-core/rot#dependsOnTrustee
+rot:dependsOnTrustee rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf gufo:externallyDependsOn ;
+                     rdfs:domain rot:Trust ;
+                     rdfs:range rot:Trustee ;
+                     rdfs:label "depends on trustee" .
+
+
+###  https://purl.org/krdb-core/rot#dependsOnVulnerability
+rot:dependsOnVulnerability rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf gufo:externallyDependsOn ;
+                           rdfs:domain rot:VulnerabilityBelief ;
+                           rdfs:range rot:Vulnerability ;
+                           rdfs:label "depends on vulnerability" .
+
+
+###  https://purl.org/krdb-core/rot#directlyCaused
+rot:directlyCaused rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf gufo:historicallyDependsOn ;
+                   rdfs:domain rot:RiskEvent ;
+                   rdfs:range rot:RiskEvent ;
+                   rdfs:label "directly caused" .
+
+
+###  https://purl.org/krdb-core/rot#dispositionBeliefInheresInTrustor
+rot:dispositionBeliefInheresInTrustor rdf:type owl:ObjectProperty ;
+                                      rdfs:subPropertyOf rot:inheresInAgent ;
+                                      rdfs:domain rot:DispositionBelief ;
+                                      rdfs:range rot:Trustor ;
+                                      rdfs:label "disposition belief inheres in trustor" .
+
+
+###  https://purl.org/krdb-core/rot#hurtByLossEvent
+rot:hurtByLossEvent rdf:type owl:ObjectProperty ;
+                    rdfs:domain rot:Intention ;
+                    rdfs:range rot:LossEvent ;
+                    rdfs:label "hurt by loss event" .
+
+
+###  https://purl.org/krdb-core/rot#hurtByLossSituation
+rot:hurtByLossSituation rdf:type owl:ObjectProperty ;
+                        rdfs:domain rot:Intention ;
+                        rdfs:range rot:LossSituation ;
+                        rdfs:label "hurt by loss situation" .
+
+
+###  https://purl.org/krdb-core/rot#influenced
+rot:influenced rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf gufo:historicallyDependsOn ;
+               rdfs:domain rot:Trust ;
+               rdfs:range rot:Trust ;
+               rdfs:label "influenced" .
+
+
+###  https://purl.org/krdb-core/rot#inheresInAgent
+rot:inheresInAgent rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf gufo:inheresIn ;
+                   rdfs:domain rot:MentalMoment ;
+                   rdfs:range rot:Agent ;
+                   rdfs:label "inheres in agent" .
+
+
+###  https://purl.org/krdb-core/rot#inheresInObjectAtRisk
+rot:inheresInObjectAtRisk rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf gufo:inheresIn ;
+                          rdfs:domain rot:Vulnerability ;
+                          rdfs:range rot:ObjectAtRisk ;
+                          rdfs:label "inheres in object at risk" .
+
+
+###  https://purl.org/krdb-core/rot#inheresInRiskSubject
+rot:inheresInRiskSubject rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf rot:inheresInAgent ;
+                         rdfs:domain rot:Intention ;
+                         rdfs:range rot:RiskSubject ;
+                         rdfs:label "inheres in risk subject" .
+
+
+###  https://purl.org/krdb-core/rot#inheresInThreatEnabler
+rot:inheresInThreatEnabler rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf gufo:inheresIn ;
+                           rdfs:domain rot:Vulnerability ;
+                           rdfs:range rot:ThreatEnabler ;
+                           rdfs:label "inheres in threat enabler" .
+
+
+###  https://purl.org/krdb-core/rot#inheresInThreatObject
+rot:inheresInThreatObject rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf gufo:inheresIn ;
+                          rdfs:domain rot:ThreatCapability ;
+                          rdfs:range rot:ThreatObject ;
+                          rdfs:label "inheres in threat object" .
+
+
+###  https://purl.org/krdb-core/rot#inheresInTrust
+rot:inheresInTrust rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf gufo:inheresIn ;
+                   rdfs:domain rot:TrustDegree ;
+                   rdfs:range rot:Trust ;
+                   rdfs:label "inheres in trust" .
+
+
+###  https://purl.org/krdb-core/rot#inheresInTrustee
+rot:inheresInTrustee rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf gufo:inheresIn ;
+                     rdfs:domain rot:Disposition ;
+                     rdfs:range rot:Trustee ;
+                     rdfs:label "inheres in trustee" .
+
+
+###  https://purl.org/krdb-core/rot#inheresInTrustor
+rot:inheresInTrustor rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf gufo:inheresIn ;
+                     rdfs:domain rot:Trust ;
+                     rdfs:range rot:Trustor ;
+                     rdfs:label "inheres in trustor" .
+
+
+###  https://purl.org/krdb-core/rot#intentionBeliefDependsOnAgentTrustee
+rot:intentionBeliefDependsOnAgentTrustee rdf:type owl:ObjectProperty ;
+                                         rdfs:subPropertyOf gufo:externallyDependsOn ;
+                                         rdfs:domain rot:IntentionBelief ;
+                                         rdfs:range rot:AgentTrustee ;
+                                         rdfs:label "intention belief depends on agent trustee" .
+
+
+###  https://purl.org/krdb-core/rot#intentionBeliefInheresInTrustor
+rot:intentionBeliefInheresInTrustor rdf:type owl:ObjectProperty ;
+                                    rdfs:subPropertyOf rot:inheresInAgent ;
+                                    rdfs:domain rot:IntentionBelief ;
+                                    rdfs:range rot:Trustor ;
+                                    rdfs:label "intention belief inheres in trustor" .
+
+
+###  https://purl.org/krdb-core/rot#intentionInheresInTrustor
+rot:intentionInheresInTrustor rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf rot:inheresInAgent ;
+                              rdfs:domain rot:Intention ;
+                              rdfs:range rot:Trustor ;
+                              rdfs:label "intention inheres in trustor" .
+
+
+###  https://purl.org/krdb-core/rot#isBeliefPartOfTrust
+rot:isBeliefPartOfTrust rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf gufo:isProperPartOf ;
+                        rdfs:domain rot:DispositionBelief ;
+                        rdfs:range rot:Trust ;
+                        rdfs:label "is belief part of trust" .
+
+
+###  https://purl.org/krdb-core/rot#isIntentionPartOfTrust
+rot:isIntentionPartOfTrust rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf gufo:isProperPartOf ;
+                           rdfs:domain rot:Intention ;
+                           rdfs:range rot:Trust ;
+                           rdfs:label "is intention part of trust" .
+
+
+###  https://purl.org/krdb-core/rot#isPartOfRiskExperience
+rot:isPartOfRiskExperience rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf gufo:isEventProperPartOf ;
+                           rdfs:domain rot:RiskEvent ;
+                           rdfs:range rot:RiskExperience ;
+                           rdfs:label "is part of risk experience" .
+
+
+###  https://purl.org/krdb-core/rot#isPartOfSocialTrust
+rot:isPartOfSocialTrust rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf gufo:isProperPartOf ;
+                        rdfs:domain rot:IntentionBelief ;
+                        rdfs:range rot:SocialTrust ;
+                        rdfs:label "is part of social trust" .
+
+
+###  https://purl.org/krdb-core/rot#isProperPartOfTrust
+rot:isProperPartOfTrust rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf gufo:isProperPartOf ;
+                        rdfs:domain rot:CapabilityBelief ;
+                        rdfs:range rot:Trust ;
+                        rdfs:comment "Relation URI was automatically generated." .
+
+
+###  https://purl.org/krdb-core/rot#manifestedInRiskEvent
+rot:manifestedInRiskEvent rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf gufo:manifestedIn ;
+                          rdfs:domain rot:Vulnerability ;
+                          rdfs:range rot:RiskEvent ;
+                          rdfs:label "manifested in risk event" .
+
+
+###  https://purl.org/krdb-core/rot#manifestedInThreatEvent
+rot:manifestedInThreatEvent rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf gufo:manifestedIn ;
+                            rdfs:domain rot:ThreatCapability ;
+                            rdfs:range rot:ThreatEvent ;
+                            rdfs:label "manifested in threat event" .
+
+
+###  https://purl.org/krdb-core/rot#motivatedBy
+rot:motivatedBy rdf:type owl:ObjectProperty ;
+                rdfs:domain rot:TrustorAction ;
+                rdfs:range rot:Intention ;
+                rdfs:label "motivated by" .
+
+
+###  https://purl.org/krdb-core/rot#participatedInLossEvent
+rot:participatedInLossEvent rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf gufo:participatedIn ;
+                            rdfs:domain rot:ObjectAtRisk ;
+                            rdfs:range rot:LossEvent ;
+                            rdfs:label "participated in loss event" .
+
+
+###  https://purl.org/krdb-core/rot#participatedInRiskEvent
+rot:participatedInRiskEvent rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf gufo:participatedIn ;
+                            rdfs:domain rot:ThreatEnabler ;
+                            rdfs:range rot:RiskEvent ;
+                            rdfs:label "participated in risk event" .
+
+
+###  https://purl.org/krdb-core/rot#participatedInRiskExperience
+rot:participatedInRiskExperience rdf:type owl:ObjectProperty ;
+                                 rdfs:subPropertyOf gufo:participatedIn ;
+                                 rdfs:domain rot:RiskSubject ;
+                                 rdfs:range rot:RiskExperience ;
+                                 rdfs:label "participated in risk experience" .
+
+
+###  https://purl.org/krdb-core/rot#participatedInThreatEvent
+rot:participatedInThreatEvent rdf:type owl:ObjectProperty ;
+                              rdfs:subPropertyOf gufo:participatedIn ;
+                              rdfs:domain rot:ThreatObject ;
+                              rdfs:range rot:ThreatEvent ;
+                              rdfs:label "participated in threat event" .
+
+
+###  https://purl.org/krdb-core/rot#performedAction
+rot:performedAction rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf gufo:participatedIn ;
+                    rdfs:domain rot:Trustor ;
+                    rdfs:range rot:TrustorAction ;
+                    rdfs:label "performed action" .
+
+
+###  https://purl.org/krdb-core/rot#trusts
+rot:trusts rdf:type owl:ObjectProperty ;
+           rdfs:domain rot:Trustor ;
+           rdfs:range rot:Trustee .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.org/nemo/gufo#Object
+gufo:Object owl:equivalentClass [ rdf:type owl:Class ;
+                                  owl:unionOf ( rot:Agent
+                                                rot:Object
+                                              )
+                                ] .
+
+
+###  https://purl.org/krdb-core/rot#Agent
+rot:Agent rdf:type owl:Class ;
+          rdfs:subClassOf gufo:Object ;
+          owl:disjointWith rot:Object .
+
+
+###  https://purl.org/krdb-core/rot#AgentTrustee
+rot:AgentTrustee rdf:type owl:Class ;
+                 rdfs:subClassOf rot:Agent ,
+                                 rot:Trustee ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty [ owl:inverseOf rot:dependsOnAgentTrustee
+                                                  ] ;
+                                   owl:someValuesFrom rot:SocialTrust
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty [ owl:inverseOf rot:intentionBeliefDependsOnAgentTrustee
+                                                  ] ;
+                                   owl:someValuesFrom rot:IntentionBelief
+                                 ] .
+
+
+###  https://purl.org/krdb-core/rot#AspectualBelief
+rot:AspectualBelief rdf:type owl:Class ;
+                    rdfs:subClassOf gufo:ExtrinsicMode ,
+                                    rot:Belief ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty rot:dependsOnObject ;
+                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass gufo:Object
+                                    ] ;
+                    owl:disjointWith rot:Trust .
+
+
+###  https://purl.org/krdb-core/rot#Belief
+rot:Belief rdf:type owl:Class ;
+           rdfs:subClassOf rot:MentalMoment .
+
+
+###  https://purl.org/krdb-core/rot#Capability
+rot:Capability rdf:type owl:Class ;
+               rdfs:subClassOf rot:Disposition .
+
+
+###  https://purl.org/krdb-core/rot#CapabilityBelief
+rot:CapabilityBelief rdf:type owl:Class ;
+                     rdfs:subClassOf rot:DispositionBelief ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty rot:dependsOnCapability ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onClass rot:Capability
+                                     ] .
+
+
+###  https://purl.org/krdb-core/rot#Disposition
+rot:Disposition rdf:type owl:Class ;
+                rdfs:subClassOf gufo:IntrinsicMode ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty rot:inheresInTrustee ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass rot:Trustee
+                                ] .
+
+
+###  https://purl.org/krdb-core/rot#DispositionBelief
+rot:DispositionBelief rdf:type owl:Class ;
+                      rdfs:subClassOf rot:AspectualBelief ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty rot:beliefDependsOnTrustee ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onClass rot:Trustee
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty rot:dependsOnDisposition ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onClass rot:Disposition
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty rot:dispositionBeliefInheresInTrustor ;
+                                        owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                        owl:onClass rot:Trustor
+                                      ] .
+
+
+###  https://purl.org/krdb-core/rot#HazardousSituation
+rot:HazardousSituation rdf:type owl:Class ;
+                       rdfs:subClassOf gufo:Situation ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty rot:contributedToTriggerThreatEvent ;
+                                         owl:someValuesFrom rot:ThreatEvent
+                                       ] .
+
+
+###  https://purl.org/krdb-core/rot#InstitutionBasedTrust
+rot:InstitutionBasedTrust rdf:type owl:Class ;
+                          rdfs:subClassOf rot:Trust ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty rot:dependsOnSystemTrustee ;
+                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                            owl:onClass rot:SocialSystemTrustee
+                                          ] .
+
+
+###  https://purl.org/krdb-core/rot#Intention
+rot:Intention rdf:type owl:Class ;
+              rdfs:subClassOf rot:MentalMoment ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty rot:inheresInRiskSubject ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass rot:RiskSubject
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty rot:intentionInheresInTrustor ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass rot:Trustor
+                              ] .
+
+
+###  https://purl.org/krdb-core/rot#IntentionBelief
+rot:IntentionBelief rdf:type owl:Class ;
+                    rdfs:subClassOf rot:AspectualBelief ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty rot:dependsOnIntention ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass rot:Intention
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty rot:intentionBeliefDependsOnAgentTrustee ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass rot:AgentTrustee
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty rot:intentionBeliefInheresInTrustor ;
+                                      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass rot:Trustor
+                                    ] .
+
+
+###  https://purl.org/krdb-core/rot#LossEvent
+rot:LossEvent rdf:type owl:Class ;
+              rdfs:subClassOf rot:RiskEvent ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty [ owl:inverseOf rot:causedLossEvent
+                                               ] ;
+                                owl:someValuesFrom rot:ThreatEvent
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty rot:broughtAboutLossSituation ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass rot:LossSituation
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty [ owl:inverseOf rot:participatedInLossEvent
+                                               ] ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass rot:ObjectAtRisk
+                              ] .
+
+
+###  https://purl.org/krdb-core/rot#LossSituation
+rot:LossSituation rdf:type owl:Class ;
+                  rdfs:subClassOf gufo:Situation ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty [ owl:inverseOf rot:broughtAboutLossSituation
+                                                   ] ;
+                                    owl:someValuesFrom rot:LossEvent
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty [ owl:inverseOf rot:hurtByLossSituation
+                                                   ] ;
+                                    owl:someValuesFrom rot:Intention
+                                  ] .
+
+
+###  https://purl.org/krdb-core/rot#MentalMoment
+rot:MentalMoment rdf:type owl:Class ;
+                 rdfs:subClassOf gufo:Aspect ,
+                                 [ rdf:type owl:Class ;
+                                   owl:unionOf ( gufo:ExtrinsicMode
+                                                 gufo:IntrinsicMode
+                                               )
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty rot:inheresInAgent ;
+                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass rot:Agent
+                                 ] .
+
+
+###  https://purl.org/krdb-core/rot#Object
+rot:Object rdf:type owl:Class ;
+           rdfs:subClassOf gufo:Object .
+
+
+###  https://purl.org/krdb-core/rot#ObjectAtRisk
+rot:ObjectAtRisk rdf:type owl:Class ;
+                 rdfs:subClassOf gufo:Object ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty rot:participatedInLossEvent ;
+                                   owl:someValuesFrom rot:LossEvent
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty [ owl:inverseOf rot:inheresInObjectAtRisk
+                                                  ] ;
+                                   owl:someValuesFrom rot:Vulnerability
+                                 ] .
+
+
+###  https://purl.org/krdb-core/rot#RiskEvent
+rot:RiskEvent rdf:type owl:Class ;
+              rdfs:subClassOf gufo:Event ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty rot:isPartOfRiskExperience ;
+                                owl:someValuesFrom rot:RiskExperience
+                              ] .
+
+
+###  https://purl.org/krdb-core/rot#RiskExperience
+rot:RiskExperience rdf:type owl:Class ;
+                   rdfs:subClassOf gufo:Event ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty [ owl:inverseOf rot:participatedInRiskExperience
+                                                    ] ;
+                                     owl:someValuesFrom rot:RiskSubject
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty [ owl:inverseOf rot:isPartOfRiskExperience
+                                                    ] ;
+                                     owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                                     owl:onClass rot:RiskEvent
+                                   ] .
+
+
+###  https://purl.org/krdb-core/rot#RiskSubject
+rot:RiskSubject rdf:type owl:Class ;
+                rdfs:subClassOf gufo:FunctionalComplex ,
+                                rot:Agent ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty rot:participatedInRiskExperience ;
+                                  owl:someValuesFrom rot:RiskExperience
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty [ owl:inverseOf rot:inheresInRiskSubject
+                                                 ] ;
+                                  owl:someValuesFrom rot:Intention
+                                ] .
+
+
+###  https://purl.org/krdb-core/rot#SocialSystem
+rot:SocialSystem rdf:type owl:Class ;
+                 rdfs:subClassOf gufo:FunctionalComplex ,
+                                 rot:Object .
+
+
+###  https://purl.org/krdb-core/rot#SocialSystemTrustee
+rot:SocialSystemTrustee rdf:type owl:Class ;
+                        rdfs:subClassOf rot:SocialSystem ,
+                                        rot:Trustee ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty [ owl:inverseOf rot:dependsOnSystemTrustee
+                                                         ] ;
+                                          owl:someValuesFrom rot:InstitutionBasedTrust
+                                        ] .
+
+
+###  https://purl.org/krdb-core/rot#SocialTrust
+rot:SocialTrust rdf:type owl:Class ;
+                rdfs:subClassOf rot:Trust ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty [ owl:inverseOf rot:isPartOfSocialTrust
+                                                 ] ;
+                                  owl:someValuesFrom rot:IntentionBelief
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty rot:dependsOnAgentTrustee ;
+                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass rot:AgentTrustee
+                                ] .
+
+
+###  https://purl.org/krdb-core/rot#ThreatCapability
+rot:ThreatCapability rdf:type owl:Class ;
+                     rdfs:subClassOf gufo:IntrinsicMode ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty rot:manifestedInThreatEvent ;
+                                       owl:someValuesFrom rot:ThreatEvent
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty rot:inheresInThreatObject ;
+                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onClass rot:ThreatObject
+                                     ] .
+
+
+###  https://purl.org/krdb-core/rot#ThreatEnabler
+rot:ThreatEnabler rdf:type owl:Class ;
+                  rdfs:subClassOf gufo:Object ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty rot:participatedInRiskEvent ;
+                                    owl:someValuesFrom rot:RiskEvent
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty [ owl:inverseOf rot:inheresInThreatEnabler
+                                                   ] ;
+                                    owl:someValuesFrom rot:Vulnerability
+                                  ] .
+
+
+###  https://purl.org/krdb-core/rot#ThreatEvent
+rot:ThreatEvent rdf:type owl:Class ;
+                rdfs:subClassOf rot:RiskEvent ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty rot:causedLossEvent ;
+                                  owl:someValuesFrom rot:LossEvent
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty [ owl:inverseOf rot:contributedToTriggerThreatEvent
+                                                 ] ;
+                                  owl:someValuesFrom rot:HazardousSituation
+                                ] .
+
+
+###  https://purl.org/krdb-core/rot#ThreatObject
+rot:ThreatObject rdf:type owl:Class ;
+                 rdfs:subClassOf gufo:Object ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty rot:participatedInThreatEvent ;
+                                   owl:someValuesFrom rot:ThreatEvent
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty [ owl:inverseOf rot:inheresInThreatObject
+                                                  ] ;
+                                   owl:someValuesFrom rot:ThreatCapability
+                                 ] .
+
+
+###  https://purl.org/krdb-core/rot#Trust
+rot:Trust rdf:type owl:Class ;
+          rdfs:subClassOf gufo:ExtrinsicMode ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty [ owl:inverseOf rot:isBeliefPartOfTrust
+                                           ] ;
+                            owl:someValuesFrom rot:DispositionBelief
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty [ owl:inverseOf rot:isProperPartOfTrust
+                                           ] ;
+                            owl:someValuesFrom rot:CapabilityBelief
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty rot:dependsOnTrustee ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass rot:Trustee
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty rot:inheresInTrustor ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass rot:Trustor
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty [ owl:inverseOf rot:inheresInTrust
+                                           ] ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass rot:TrustDegree
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty [ owl:inverseOf rot:isIntentionPartOfTrust
+                                           ] ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass rot:Intention
+                          ] .
+
+
+###  https://purl.org/krdb-core/rot#TrustDegree
+rot:TrustDegree rdf:type owl:Class ;
+                rdfs:subClassOf gufo:Quality ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty rot:inheresInTrust ;
+                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass rot:Trust
+                                ] .
+
+
+###  https://purl.org/krdb-core/rot#Trustee
+rot:Trustee rdf:type owl:Class ;
+            rdfs:subClassOf gufo:FunctionalComplex ,
+                            gufo:Object ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty [ owl:inverseOf rot:dependsOnTrustee
+                                             ] ;
+                              owl:someValuesFrom rot:Trust
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty [ owl:inverseOf rot:inheresInTrustee
+                                             ] ;
+                              owl:someValuesFrom rot:Disposition
+                            ] .
+
+
+###  https://purl.org/krdb-core/rot#Trustor
+rot:Trustor rdf:type owl:Class ;
+            rdfs:subClassOf gufo:FunctionalComplex ,
+                            rot:Agent ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty [ owl:inverseOf rot:dispositionBeliefInheresInTrustor
+                                             ] ;
+                              owl:someValuesFrom rot:DispositionBelief
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty [ owl:inverseOf rot:inheresInTrustor
+                                             ] ;
+                              owl:someValuesFrom rot:Trust
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty [ owl:inverseOf rot:intentionInheresInTrustor
+                                             ] ;
+                              owl:someValuesFrom rot:Intention
+                            ] .
+
+
+###  https://purl.org/krdb-core/rot#TrustorAction
+rot:TrustorAction rdf:type owl:Class ;
+                  rdfs:subClassOf gufo:Event ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty rot:basedOnTrust ;
+                                    owl:someValuesFrom rot:Trust
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty rot:broughtAboutHazardousSituation ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass rot:HazardousSituation
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty rot:motivatedBy ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass rot:Intention
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty [ owl:inverseOf rot:performedAction
+                                                   ] ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass rot:Trustor
+                                  ] .
+
+
+###  https://purl.org/krdb-core/rot#Vulnerability
+rot:Vulnerability rdf:type owl:Class ;
+                  rdfs:subClassOf rot:Disposition ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty rot:manifestedInRiskEvent ;
+                                    owl:someValuesFrom rot:RiskEvent
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty rot:inheresInObjectAtRisk ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass rot:ObjectAtRisk
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty rot:inheresInThreatEnabler ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass rot:ThreatEnabler
+                                  ] .
+
+
+###  https://purl.org/krdb-core/rot#VulnerabilityBelief
+rot:VulnerabilityBelief rdf:type owl:Class ;
+                        rdfs:subClassOf rot:DispositionBelief ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty rot:dependsOnVulnerability ;
+                                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                          owl:onClass rot:Vulnerability
+                                        ] .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://purl.org/krdb-core/rot#Agent
+rot:Agent rdf:type owl:NamedIndividual ,
+                   gufo:Category .
+
+
+###  https://purl.org/krdb-core/rot#AgentTrustee
+rot:AgentTrustee rdf:type owl:NamedIndividual ,
+                          gufo:RoleMixin .
+
+
+###  https://purl.org/krdb-core/rot#AspectualBelief
+rot:AspectualBelief rdf:type owl:NamedIndividual ,
+                             gufo:Kind .
+
+
+###  https://purl.org/krdb-core/rot#Belief
+rot:Belief rdf:type owl:NamedIndividual ,
+                    gufo:Category .
+
+
+###  https://purl.org/krdb-core/rot#Capability
+rot:Capability rdf:type owl:NamedIndividual ,
+                        gufo:RoleMixin .
+
+
+###  https://purl.org/krdb-core/rot#CapabilityBelief
+rot:CapabilityBelief rdf:type owl:NamedIndividual ,
+                              gufo:Role .
+
+
+###  https://purl.org/krdb-core/rot#Disposition
+rot:Disposition rdf:type owl:NamedIndividual ,
+                         gufo:Category .
+
+
+###  https://purl.org/krdb-core/rot#DispositionBelief
+rot:DispositionBelief rdf:type owl:NamedIndividual ,
+                               gufo:SubKind .
+
+
+###  https://purl.org/krdb-core/rot#HazardousSituation
+rot:HazardousSituation rdf:type owl:NamedIndividual ,
+                                gufo:SituationType .
+
+
+###  https://purl.org/krdb-core/rot#InstitutionBasedTrust
+rot:InstitutionBasedTrust rdf:type owl:NamedIndividual ,
+                                   gufo:SubKind .
+
+
+###  https://purl.org/krdb-core/rot#Intention
+rot:Intention rdf:type owl:NamedIndividual ,
+                       gufo:Category .
+
+
+###  https://purl.org/krdb-core/rot#IntentionBelief
+rot:IntentionBelief rdf:type owl:NamedIndividual ,
+                             gufo:SubKind .
+
+
+###  https://purl.org/krdb-core/rot#LossEvent
+rot:LossEvent rdf:type owl:NamedIndividual ,
+                       gufo:EventType .
+
+
+###  https://purl.org/krdb-core/rot#LossSituation
+rot:LossSituation rdf:type owl:NamedIndividual ,
+                           gufo:SituationType .
+
+
+###  https://purl.org/krdb-core/rot#MentalMoment
+rot:MentalMoment rdf:type owl:NamedIndividual ,
+                          gufo:Category .
+
+
+###  https://purl.org/krdb-core/rot#Object
+rot:Object rdf:type owl:NamedIndividual ,
+                    gufo:Category .
+
+
+###  https://purl.org/krdb-core/rot#ObjectAtRisk
+rot:ObjectAtRisk rdf:type owl:NamedIndividual ,
+                          gufo:RoleMixin .
+
+
+###  https://purl.org/krdb-core/rot#RiskEvent
+rot:RiskEvent rdf:type owl:NamedIndividual ,
+                       gufo:EventType .
+
+
+###  https://purl.org/krdb-core/rot#RiskExperience
+rot:RiskExperience rdf:type owl:NamedIndividual ,
+                            gufo:EventType .
+
+
+###  https://purl.org/krdb-core/rot#RiskSubject
+rot:RiskSubject rdf:type owl:NamedIndividual ,
+                         gufo:RoleMixin .
+
+
+###  https://purl.org/krdb-core/rot#SocialSystem
+rot:SocialSystem rdf:type owl:NamedIndividual ,
+                          gufo:Kind .
+
+
+###  https://purl.org/krdb-core/rot#SocialSystemTrustee
+rot:SocialSystemTrustee rdf:type owl:NamedIndividual ,
+                                 gufo:Role .
+
+
+###  https://purl.org/krdb-core/rot#SocialTrust
+rot:SocialTrust rdf:type owl:NamedIndividual ,
+                         gufo:SubKind .
+
+
+###  https://purl.org/krdb-core/rot#ThreatCapability
+rot:ThreatCapability rdf:type owl:NamedIndividual ,
+                              gufo:RoleMixin .
+
+
+###  https://purl.org/krdb-core/rot#ThreatEnabler
+rot:ThreatEnabler rdf:type owl:NamedIndividual ,
+                           gufo:RoleMixin .
+
+
+###  https://purl.org/krdb-core/rot#ThreatEvent
+rot:ThreatEvent rdf:type owl:NamedIndividual ,
+                         gufo:EventType .
+
+
+###  https://purl.org/krdb-core/rot#ThreatObject
+rot:ThreatObject rdf:type owl:NamedIndividual ,
+                          gufo:RoleMixin .
+
+
+###  https://purl.org/krdb-core/rot#Trust
+rot:Trust rdf:type owl:NamedIndividual ,
+                   gufo:Kind .
+
+
+###  https://purl.org/krdb-core/rot#TrustDegree
+rot:TrustDegree rdf:type owl:NamedIndividual ,
+                         gufo:Kind .
+
+
+###  https://purl.org/krdb-core/rot#Trustee
+rot:Trustee rdf:type owl:NamedIndividual ,
+                     gufo:RoleMixin .
+
+
+###  https://purl.org/krdb-core/rot#Trustor
+rot:Trustor rdf:type owl:NamedIndividual ,
+                     gufo:RoleMixin .
+
+
+###  https://purl.org/krdb-core/rot#TrustorAction
+rot:TrustorAction rdf:type owl:NamedIndividual ,
+                           gufo:EventType .
+
+
+###  https://purl.org/krdb-core/rot#Vulnerability
+rot:Vulnerability rdf:type owl:NamedIndividual ,
+                           gufo:RoleMixin .
+
+
+###  https://purl.org/krdb-core/rot#VulnerabilityBelief
+rot:VulnerabilityBelief rdf:type owl:NamedIndividual ,
+                                 gufo:Role .
+
+
+###  https://purl.org/krdb-core/rot#boolean
+rot:boolean rdf:type owl:NamedIndividual ,
+                     gufo:AbstractIndividualType .
+
+
+###  https://purl.org/krdb-core/rot#byte
+rot:byte rdf:type owl:NamedIndividual ,
+                  gufo:AbstractIndividualType .
+
+
+###  https://purl.org/krdb-core/rot#char
+rot:char rdf:type owl:NamedIndividual ,
+                  gufo:AbstractIndividualType .
+
+
+###  https://purl.org/krdb-core/rot#double
+rot:double rdf:type owl:NamedIndividual ,
+                    gufo:AbstractIndividualType .
+
+
+###  https://purl.org/krdb-core/rot#float
+rot:float rdf:type owl:NamedIndividual ,
+                   gufo:AbstractIndividualType .
+
+
+###  https://purl.org/krdb-core/rot#int
+rot:int rdf:type owl:NamedIndividual ,
+                 gufo:AbstractIndividualType .
+
+
+###  https://purl.org/krdb-core/rot#long
+rot:long rdf:type owl:NamedIndividual ,
+                  gufo:AbstractIndividualType .
+
+
+###  https://purl.org/krdb-core/rot#short
+rot:short rdf:type owl:NamedIndividual ,
+                   gufo:AbstractIndividualType .
+
+
+###  https://purl.org/krdb-core/rot#string
+rot:string rdf:type owl:NamedIndividual ,
+                    gufo:AbstractIndividualType .
+
+
+###  https://purl.org/krdb-core/rot#trusts
+rot:trusts rdf:type owl:NamedIndividual ,
+                    gufo:MaterialRelationshipType ;
+           gufo:isDerivedFrom rot:Trust .
+
+
+###  https://purl.org/krdb-core/rot#void
+rot:void rdf:type owl:NamedIndividual ,
+                  gufo:AbstractIndividualType .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+rot:Agent rdfs:label "Agent" .
+
+
+rot:AgentTrustee rdfs:label "Agent Trustee" .
+
+
+rot:AspectualBelief rdfs:label "Aspectual Belief" .
+
+
+rot:Belief rdfs:label "Belief" .
+
+
+rot:Capability rdfs:label "Capability" .
+
+
+rot:CapabilityBelief rdfs:label "Capability Belief" .
+
+
+rot:Disposition rdfs:label "Disposition" .
+
+
+rot:DispositionBelief rdfs:label "Disposition Belief" .
+
+
+rot:HazardousSituation rdfs:label "Hazardous Situation" .
+
+
+rot:InstitutionBasedTrust rdfs:label "Institution-Based Trust" .
+
+
+rot:Intention rdfs:label "Intention" .
+
+
+rot:IntentionBelief rdfs:label "Intention Belief" .
+
+
+rot:LossEvent rdfs:label "Loss Event" .
+
+
+rot:LossSituation rdfs:label "Loss Situation" .
+
+
+rot:MentalMoment rdfs:label "Mental Moment" .
+
+
+rot:Object rdfs:label "Object" .
+
+
+rot:ObjectAtRisk rdfs:label "Object At Risk" .
+
+
+rot:RiskEvent rdfs:label "Risk Event" .
+
+
+rot:RiskExperience rdfs:label "Risk Experience" .
+
+
+rot:RiskSubject rdfs:label "Risk Subject" .
+
+
+rot:SocialSystem rdfs:label "Social System" .
+
+
+rot:SocialSystemTrustee rdfs:label "Social System Trustee" .
+
+
+rot:SocialTrust rdfs:label "Social Trust" .
+
+
+rot:ThreatCapability rdfs:label "Threat Capability" .
+
+
+rot:ThreatEnabler rdfs:label "Threat Enabler" .
+
+
+rot:ThreatEvent rdfs:label "Threat Event" .
+
+
+rot:ThreatObject rdfs:label "Threat Object" .
+
+
+rot:Trust rdfs:label "Trust" .
+
+
+rot:TrustDegree rdfs:label "Trust Degree" .
+
+
+rot:Trustee rdfs:label "Trustee" .
+
+
+rot:Trustor rdfs:label "Trustor" .
+
+
+rot:TrustorAction rdfs:label "Trustor Action" .
+
+
+rot:Vulnerability rdfs:label "Vulnerability" .
+
+
+rot:VulnerabilityBelief rdfs:label "Vulnerability Belief" .
+
+
+rot:bearsDisposition rdfs:label "inheres in trustee" .
+
+
+rot:bearsDispositionBelief rdfs:label "disposition belief inheres in trustor" .
+
+
+rot:bearsIntention rdfs:label "intention inheres in trustor" .
+
+
+rot:bearsIntentionBelief rdfs:label "intention belief inheres in trustor" .
+
+
+rot:bearsIntention_inverse_EPqAqi6GAqACBjI1 rdfs:label "inheres in risk subject" .
+
+
+rot:bearsMentalMoment rdfs:label "inheres in agent" .
+
+
+rot:bearsThreatCapability rdfs:label "inheres in threat object" .
+
+
+rot:bearsTrust rdfs:label "inheres in trustor" .
+
+
+rot:bearsVulnerability rdfs:label "inheres in threat enabler" .
+
+
+rot:bearsVulnerability_inverse_mkYfKi6GAqACBi7W rdfs:label "inheres in object at risk" .
+
+
+rot:hasDependantAspectualBelief rdfs:label "depends on object" .
+
+
+rot:hasDependantCapabilityBelief rdfs:label "depends on capability" .
+
+
+rot:hasDependantDispositionBelief rdfs:label "belief depends on trustee" .
+
+
+rot:hasDependantDispositionBelief_inverse_kFMcv86GAqACBEZY rdfs:label "depends on disposition" .
+
+
+rot:hasDependantInstitutionBasedTrust rdfs:label "depends on system trustee" .
+
+
+rot:hasDependantIntentionBelief rdfs:label "depends on intention" .
+
+
+rot:hasDependantIntentionBelief_inverse_HTarKi6GAqACBiFC rdfs:label "intention belief depends on agent trustee" .
+
+
+rot:hasDependantSocialTrust rdfs:label "depends on agent trustee" .
+
+
+rot:hasDependantTrust rdfs:label "depends on trustee" .
+
+
+rot:hasDependantVulnerabilityBelief rdfs:label "depends on vulnerability" .
+
+
+rot:hasHistoricalDependantRiskEvent rdfs:label "directly caused" .
+
+
+rot:hasHistoricalDependantThreatEvent rdfs:label "caused loss event" .
+
+
+rot:hasParticipantObjectAtRisk rdfs:label "participated in loss event" .
+
+
+rot:hasParticipantRiskSubject rdfs:label "participated in risk experience" .
+
+
+rot:hasParticipantThreatEnabler rdfs:label "participated in risk event" .
+
+
+rot:hasParticipantThreatObject rdfs:label "participated in threat event" .
+
+
+rot:hasParticipantTrustor rdfs:label "performed action" .
+
+
+rot:hasProperPartDispositionBelief rdfs:label "is belief part of trust" .
+
+
+rot:hasProperPartIntention rdfs:label "is intention part of trust" .
+
+
+rot:hasProperPartIntentionBelief rdfs:label "is part of social trust" .
+
+
+rot:hasProperPartRiskEvent rdfs:label "is part of risk experience" .
+
+
+rot:hazardousSituation rdfs:label "contributed to trigger threat event" .
+
+
+rot:influencer rdfs:label "influenced" .
+
+
+rot:intention rdfs:label "hurt by loss event" .
+
+
+rot:intention_inverse_gu1_Ki6GAqACBjFu rdfs:label "hurt by loss situation" .
+
+
+rot:isManifestationOfThreatCapability rdfs:label "manifested in threat event" .
+
+
+rot:isManifestationOfVulnerability rdfs:label "manifested in risk event" .
+
+
+rot:lossEvent rdfs:label "brought about loss situation" .
+
+
+rot:materialRelationshipTypeTrustor rdfs:label "trusts" .
+
+
+rot:trustDegree rdfs:label "inheres in trust" .
+
+
+rot:trustorAction rdfs:label "motivated by" .
+
+
+rot:trustorAction_inverse_5BiQqi6GAqACBjT rdfs:label "brought about hazardous situation" .
+
+
+rot:trustorAction_inverse__tb4c6GAqACBSQZ rdfs:label "based on trust" .
+
+
+rot:trusts rdfs:label "trusts" .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( rot:CapabilityBelief
+                rot:IntentionBelief
+                rot:VulnerabilityBelief
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

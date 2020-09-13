@@ -4,17 +4,19 @@ ROT is a well-founded reference ontology, specified in OntoUML, that formally ch
 
 ## Project Structure
 
-* [/diagrams](/diagrama) contains figures depicting ROT.
-* [/models](/models) ROT source file in OWL.
-* ROT_0720.vpl -  ROT source file in OntoUML.
+* [/ontouml](/ontouml) contains files related to the conceptual version of ROT, which was modelled in OntoUML.
+* [/owl](/owl) contains files related to the gUFO-based implementation of ROT, represented in OWL.
 
-## Reusing .vpl files
 
-* To open and edit .vpl files, use [Visaul Paradigm] (https://www.visual-paradigm.com)
+## Reusing .vpp files
+
+* To open and edit .vpp files, use [Visual Paradigm] (https://www.visual-paradigm.com)
+* To open and edit .ttl files, use [Protégé] (https://protege.stanford.edu/)
 
 ## Built With
 
 * [Visual Paradigm] (https://www.visual-paradigm.com) - a free diagramming tool.
+* The OntoUML Plugin for Visual Paradigm [https://github.com/OntoUML/ontouml-vp-plugin](https://github.com/OntoUML/ontouml-vp-plugin)
 
 
 ## Authors
