@@ -29,7 +29,7 @@ ROT is a well-founded reference ontology, specified in OntoUML, that formally ch
 
 ## References
 
-- [maral G., Sales T.P., Guizzardi G., Porello D. (2019) Towards a Reference Ontology of Trust. In: Panetto H., Debruyne C., Hepp M., Lewis D., Ardagna C., Meersman R. (eds) On the Move to Meaningful Internet Systems: OTM 2019 Conferences. OTM 2019. Lecture Notes in Computer Science, vol 11877. Springer, Cham. https://doi.org/10.1007/978-3-030-33246-4_1](https://doi.org/10.1007/978-3-030-33246-4_1)
+- Amaral G., Sales T.P., Guizzardi G., Porello D. (2019) **Towards a Reference Ontology of Trust**. In: Panetto H., Debruyne C., Hepp M., Lewis D., Ardagna C., Meersman R. (eds) On the Move to Meaningful Internet Systems: OTM 2019 Conferences. OTM 2019. Lecture Notes in Computer Science, vol 11877. Springer, Cham. [https://doi.org/10.1007/978-3-030-33246-4_1](https://doi.org/10.1007/978-3-030-33246-4_1)
 
-- [Sales T.P., Baião F., Guizzardi G., Almeida J.P.A., Guarino N., Mylopoulos J. (2018) The Common Ontology of Value and Risk. In: Trujillo J. et al. (eds) Conceptual Modeling. ER 2018. Lecture Notes in Computer Science, vol 11157. Springer, Cham. https://doi.org/10.1007/978-3-030-00847-5_11](https://doi.org/10.1007/978-3-030-00847-5_11)
+- Sales T.P., Baião F., Guizzardi G., Almeida J.P.A., Guarino N., Mylopoulos J. (2018) **The Common Ontology of Value and Risk**. In: Trujillo J. et al. (eds) Conceptual Modeling. ER 2018. Lecture Notes in Computer Science, vol 11157. Springer, Cham. [https://doi.org/10.1007/978-3-030-00847-5_11](https://doi.org/10.1007/978-3-030-00847-5_11)
 
