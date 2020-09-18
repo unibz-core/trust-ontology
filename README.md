@@ -15,7 +15,7 @@ ROT is a well-founded reference ontology, specified in OntoUML, that formally ch
 
 ## Built With
 
-* [Visual Paradigm] (https://www.visual-paradigm.com) - a free diagramming tool.
+* [Visual Paradigm](https://www.visual-paradigm.com) - a free diagramming tool.
 * The OntoUML Plugin for Visual Paradigm [https://github.com/OntoUML/ontouml-vp-plugin](https://github.com/OntoUML/ontouml-vp-plugin)
 
 
