@@ -10,8 +10,8 @@ ROT is a well-founded reference ontology, specified in OntoUML, that formally ch
 
 ## Reusing .vpp files
 
-* To open and edit .vpp files, use [Visual Paradigm] (https://www.visual-paradigm.com)
-* To open and edit .ttl files, use [Protégé] (https://protege.stanford.edu/)
+* To open and edit .vpp files, use [Visual Paradigm](https://www.visual-paradigm.com)
+* To open and edit .ttl files, use [Protégé](https://protege.stanford.edu/)
 
 ## Built With
 
