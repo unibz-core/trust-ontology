@@ -22,7 +22,7 @@ ROT is a well-founded reference ontology, specified in OntoUML, that formally ch
 ## Authors
 
 * **[Glenda Amaral](https://www.researchgate.net/profile/Glenda_Amaral)** - Free University of Bozen-Bolzano, Bolzano, Italy
-* **[Tiago Prince Sales](https://www.researchgate.net/profile/Tiago_Prince_Sales)** - Free University of Bozen-Bolzano, Bolzano, Italy
+* **[Tiago Prince Sales](https://www.inf.unibz.it/~tpsales/)** - Free University of Bozen-Bolzano, Bolzano, Italy
 * **[Giancarlo Guizzardi](http://www.inf.ufes.br/~gguizzardi)** - Free University of Bozen-Bolzano, Bolzano, Italy
 * **[Daniele Porello](https://www.researchgate.net/profile/Daniele_Porello)** - ISTC-CNR Laboratory for Applied Ontology, Trento, Italy
 
