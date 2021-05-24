@@ -1,4 +1,28 @@
-@prefix : <https://purl.org/krdb-core/rot#> .@prefix owl: <http://www.w3.org/2002/07/owl#> .@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .@prefix rot: <https://purl.org/krdb-core/rot#> .@prefix xml: <http://www.w3.org/XML/1998/namespace> .@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .@prefix gufo: <http://purl.org/nemo/gufo#> .@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .@base <https://purl.org/krdb-core/rot> .<https://purl.org/krdb-core/rot> rdf:type owl:Ontology ;                                  owl:imports gufo: ;                                  <http://purl.org/dc/elements/1.1/creator> "Amaral, Glenda" ,                                                                            "Guizzardi, Giancarlo" ,                                                                            "Porello, Daniele" ,                                                                            "Sales, Tiago Prince" ;                                  <http://purl.org/dc/elements/1.1/date> "2021-02-13" ;                                  <http://purl.org/dc/elements/1.1/rights> "This work is distributed under Creative Commons Attribution License CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/legalcode>"@en ;                                  <http://purl.org/dc/elements/1.1/title> "Reference Ontology of Trust"@en ;                                  rdfs:comment "The Reference Ontology of Trust (ROT) is a well-founded reference ontology, originally developed in OntoUML, that formally characterizes the concept of trust, as well as clarifies the relation between trust and risk, and represents how risk emerges from trust relations."@en ;                                  rdfs:label "Reference Ontology of Trust"@en .##################################################################    Object Properties#################################################################
+@prefix : <https://purl.org/krdb-core/rot#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rot: <https://purl.org/krdb-core/rot#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix gufo: <http://purl.org/nemo/gufo#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://purl.org/krdb-core/rot> .
+
+<https://purl.org/krdb-core/rot> 
+rdf:type owl:Ontology ;                                  
+owl:imports gufo: ;                                  
+<http://purl.org/dc/elements/1.1/creator> "Amaral, Glenda" ,
+                                          "Guizzardi, Giancarlo" ,
+                                          "Porello, Daniele" ,                                                                            
+                                          "Sales, Tiago Prince" ;                                  
+<http://purl.org/dc/elements/1.1/date> "2021-02-13" ;                                  
+<http://purl.org/dc/elements/1.1/rights> "This work is distributed under Creative Commons Attribution License CC BY 4.0 <https://creativecommons.org/licenses/by/4.0/legalcode>"@en ;                                  
+<http://purl.org/dc/elements/1.1/title> "Reference Ontology of Trust"@en ;                                  
+rdfs:comment "The Reference Ontology of Trust (ROT) is a well-founded reference ontology, originally developed in OntoUML, that formally characterizes the concept of trust, as well as clarifies the relation between trust and risk, and represents how risk emerges from trust relations."@en ;                                  
+rdfs:label "Reference Ontology of Trust"@en .
+
+
+##################################################################    Object Properties  #################################################################
 
 ###  https://purl.org/krdb-core/rot#influence:weight
 <influence:weight> rdfs:domain rot:Influence;
@@ -425,7 +449,7 @@ rot:isAbout_3 rdf:type owl:ObjectProperty;
     rdfs:subPropertyOf gufo:mediates.
 
 
-##################################################################    Classes#################################################################
+##################################################################    Classes#################################################################
 
 :char rdf:type owl:Class, gufo:AbstractIndividualType, owl:NamedIndividual;
     rdfs:subClassOf gufo:QualityValue;
@@ -798,7 +822,7 @@ rot:DispositionalEvidenceInfluence rdfs:subClassOf rot:Influence.
 :trusts gufo:isDerivedFrom rot:Trust.
 
 
-##################################################################    Restrictions#################################################################
+##################################################################    Restrictions#################################################################
 
 
 rot:SocialTrust rdfs:subClassOf [
@@ -1138,7 +1162,7 @@ rot:AgentTrustee rdfs:subClassOf [
 ].
 
 
-##################################################################    General axioms#################################################################
+##################################################################    General axioms#################################################################
 
 [ rdf:type owl:AllDisjointClasses ] owl:members (rot:Agent rot:Object).
 gufo:Object owl:equivalentClass [
@@ -1174,4 +1198,3 @@ rot:Intention owl:equivalentClass [
 [ rdf:type owl:AllDisjointClasses ] owl:members (rot:Trust rot:AspectualBelief).
 
 [ rdf:type owl:AllDisjointClasses ] owl:members (rot:TrustDegree rot:BeliefIntensity rot:PerformanceLevel rot:ManifestationLikelihood).
-
