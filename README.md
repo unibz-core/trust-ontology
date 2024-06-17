@@ -1,11 +1,12 @@
-# ROT: A Reference Ontology of Trust
+# ONTrust: A Reference Ontology of Trust
 
-ROT is a well-founded reference ontology, specified in OntoUML, that formally characterizes the concept of trust, as well as clarifies the relation between trust and risk, and represents how risk emerges from trust relations. 
+ONTrust is a well-founded reference ontology, specified in OntoUML, that formally characterizes the concept of trust, as well as clarifies the relation between trust and risk, and represents how risk emerges from trust relations. The term ROT was previously used to refer to the Reference Ontology of Trust. As of June 2024 it was renamed ONTrust.
 
 ## Project Structure
 
-* [/ontouml](/ontouml) contains files related to the conceptual version of ROT, which was modelled in OntoUML.
-* [/owl](/owl) contains files related to the gUFO-based implementation of ROT, represented in OWL.
+* [/ontouml](/ontouml) contains files related to the conceptual version of ONTrust, which was modelled in OntoUML.
+* [/owl](/owl) contains files related to the gUFO-based implementation of ONTrust, represented in OWL.
+* [/owl](/owl/previous_version) contains files related to the previous version gUFO-based implementation of the ontology, formerly known as ROT.
 
 
 ## Reusing .vpp files
@@ -21,10 +22,12 @@ ROT is a well-founded reference ontology, specified in OntoUML, that formally ch
 
 ## Authors
 
-* **[Glenda Amaral](https://www.researchgate.net/profile/Glenda_Amaral)** - Free University of Bozen-Bolzano, Bolzano, Italy
-* **[Tiago Prince Sales](https://www.inf.unibz.it/~tpsales/)** - Free University of Bozen-Bolzano, Bolzano, Italy
-* **[Giancarlo Guizzardi](http://www.inf.ufes.br/~gguizzardi)** - Free University of Bozen-Bolzano, Bolzano, Italy
-* **[Daniele Porello](https://www.researchgate.net/profile/Daniele_Porello)** - ISTC-CNR Laboratory for Applied Ontology, Trento, Italy
+* **[Glenda Amaral](https://www.researchgate.net/profile/Glenda_Amaral)** - University of Twente, Enschede, The Netherlands
+* **[Tiago Prince Sales](https://www.researchgate.net/profile/Tiago-Prince-Sales)** - University of Twente, Enschede, The Netherlands
+* **[Giancarlo Guizzardi](https://www.researchgate.net/profile/Giancarlo-Guizzardi-2)** - University of Twente, Enschede, The Netherlands
+* **[Renata Guizzardi](https://www.researchgate.net/profile/Renata-Guizzardi)** - University of Twente, Enschede, The Netherlands
+* **[Daniele Porello](https://www.researchgate.net/profile/Daniele_Porello)** - University of Genoa, Genoa, Italy
+* **[Riccardo Baratella](https://www.researchgate.net/profile/Riccardo-Baratella)** - University of Genoa, Genoa, Italy
 
 
 ## References
