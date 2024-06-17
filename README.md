@@ -44,5 +44,7 @@ ONTrust is a well-founded reference ontology, specified in OntoUML, that formall
 
 - Amaral, G., Prince Sales, T., Guizzardi, G. (2022). **Ontological Foundations for Trust Dynamics: The Case of Central Bank Digital Currency Ecosystems**. In: Guizzardi, R., Ralyté, J., Franch, X. (eds) Research Challenges in Information Science. RCIS 2022. Lecture Notes in Business Information Processing, vol 446. Springer, Cham. [https://doi.org/10.1007/978-3-031-05760-1_21](https://doi.org/10.1007/978-3-031-05760-1_21)
 
+- Baratella, R., Amaral, G., Sales, T. P., Guizzardi, R., Guizzardi, G. (2023). **The Many Facets of Trust**. In Formal Ontology in Information Systems (pp. 17-31). IOS Press.
+
 - Sales T.P., Baião F., Guizzardi G., Almeida J.P.A., Guarino N., Mylopoulos J. (2018) **The Common Ontology of Value and Risk**. In: Trujillo J. et al. (eds) Conceptual Modeling. ER 2018. Lecture Notes in Computer Science, vol 11157. Springer, Cham. [https://doi.org/10.1007/978-3-030-00847-5_11](https://doi.org/10.1007/978-3-030-00847-5_11)
 
