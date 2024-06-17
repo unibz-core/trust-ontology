@@ -1,0 +1,564 @@
+@prefix : <https://purl.org/krdb-core/ontrust#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<https://purl.org/krdb-core/ontrust> rdf:type owl:Ontology;
+    owl:imports gufo:.
+:Trustor rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Trustor"@en.
+:Trustee rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Trustee"@en.
+:ComplexIntention rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Complex Intention"@en.
+:AtomicIntention rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Atomic Intention"@en.
+:MomentBelief rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Moment Belief"@en.
+:DispositionBelief rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Disposition Belief"@en.
+:CapabilityBelief rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Capability Belief"@en.
+:VulnerabilityBelief rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Vulnerability Belief"@en.
+:IntentionBelief rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Intention Belief"@en.
+:SocialCommitmentBelief rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Social Commitment Belief"@en.
+:SocialTrust rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Social Trust"@en.
+:WeakTrust rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Weak Trust"@en.
+:TrustedDelegation rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Trusted Delegation"@en.
+:TrustorCommitment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Trustor Commitment"@en.
+:TrusteeCommitment rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Trustee Commitment"@en.
+:TrustorClaim rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Trustor Claim"@en.
+:TrusteeClaim rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Trustee Claim"@en.
+:InstitutionBasedTrust rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Institution-based Trust"@en.
+:SocialSystemTrustee rdf:type owl:Class, gufo:Role, owl:NamedIndividual;
+    rdfs:label "Social System Trustee"@en.
+:SocialSystem rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Social System"@en.
+:TrustDegree rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Trust Degree"@en.
+:BeliefIntensity rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Belief Intensity"@en.
+:PerformanceLevel rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Performance Level"@en.
+:ManifestationLikelihood rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Manifestation Likelihood"@en.
+:TrustCalibrationSignal rdf:type owl:Class, gufo:AbstractIndividualType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:AbstractIndividual;
+    rdfs:label "Trust Calibration Signal"@en.
+:TrustWarrantingSignal rdf:type owl:Class, gufo:AbstractIndividualType, owl:NamedIndividual;
+    rdfs:label "Trust-Warranting Signal"@en.
+:UncertaintySignal rdf:type owl:Class, gufo:AbstractIndividualType, owl:NamedIndividual;
+    rdfs:label "Uncertainty Signal"@en.
+:TrustworthinessEvidence rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Endurant;
+    rdfs:label "Trustworthiness Evidence"@en.
+:Influence rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Influence"@en.
+:TrustInfluence rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Trust Influence"@en.
+:MentalMomentInfluence rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Mental Moment Influence"@en.
+:TrustworthinessEvidenceInfluence rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Trustworthiness Evidence Influence"@en.
+:TrustCalibrationSignalInfluence rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Trust Calibration Signal Influence"@en.
+:TrusteeAction rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Trustee Action"@en.
+:Capability rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Capability"@en.
+:Vulnerability rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Vulnerability"@en.
+:StrongTrust rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Strong Trust"@en.
+:TrustCalibrationSignalMedia rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Trust Calibration Signal Media"@en.
+:SocialSystemParticipant rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Social System Participant"@en.
+:SocialSystemParticipantTrustee rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Social System Participant Trustee"@en.
+:TrustCalibrationCommunication rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Trust Calibration Communication"@en.
+:TrustorAction rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Trustor Action"@en.
+:GroundTrust rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Ground Trust"@en.
+:Substantial rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Substantial"@en.
+:MomentType rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Moment Type"@en.
+:Moment rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Moment"@en.
+:Endurant rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Endurant;
+    rdfs:label "Endurant"@en.
+:Disposition rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Disposition"@en.
+:Perdurant rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Perdurant"@en.
+:Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Agent"@en.
+:Object rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Object"@en.
+:Intention rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Intention"@en.
+:Belief rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Belief"@en.
+:MentalMoment rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Mental Moment"@en.
+:Desire rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Desire"@en.
+:Perception rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Perception"@en.
+:Agreement rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Agreement"@en.
+:SocialObject rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Social Object"@en.
+:CommunicativeAct rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Communicative Act"@en.
+:ThreateningSituation rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Threatening Situation"@en.
+:ThreatEvent rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Threat Event"@en.
+:LossEvent rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Loss Event"@en.
+:LossSituation rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Loss Situation"@en.
+:DispositionBelief rdfs:subClassOf :MomentBelief.
+:VulnerabilityBelief rdfs:subClassOf :DispositionBelief.
+:CapabilityBelief rdfs:subClassOf :DispositionBelief.
+:IntentionBelief rdfs:subClassOf :MomentBelief.
+:SocialCommitmentBelief rdfs:subClassOf :MomentBelief.
+:SocialTrust rdfs:subClassOf :GroundTrust.
+:WeakTrust rdfs:subClassOf :SocialTrust.
+:InstitutionBasedTrust rdfs:subClassOf :GroundTrust.
+:SocialSystemTrustee rdfs:subClassOf :Trustee, :SocialSystem.
+:TrustWarrantingSignal rdfs:subClassOf :TrustCalibrationSignal.
+:UncertaintySignal rdfs:subClassOf :TrustCalibrationSignal.
+:TrustInfluence rdfs:subClassOf :Influence.
+:MentalMomentInfluence rdfs:subClassOf :Influence.
+:TrustworthinessEvidenceInfluence rdfs:subClassOf :Influence.
+:TrustCalibrationSignalInfluence rdfs:subClassOf :Influence.
+:StrongTrust rdfs:subClassOf :WeakTrust.
+:SocialSystemParticipantTrustee rdfs:subClassOf :SocialSystemParticipant, :Trustee.
+:Agent rdfs:subClassOf :Substantial.
+:Object rdfs:subClassOf :Substantial.
+:Trustee rdfs:subClassOf :Substantial.
+:Disposition rdfs:subClassOf :Moment.
+:MentalMoment rdfs:subClassOf :Moment.
+:Substantial rdfs:subClassOf :Endurant.
+:TrustworthinessEvidence rdfs:subClassOf :Endurant.
+:Capability rdfs:subClassOf :Disposition.
+:Vulnerability rdfs:subClassOf :Disposition.
+:CommunicativeAct rdfs:subClassOf :Perdurant.
+:Trustor rdfs:subClassOf :Agent.
+:ComplexIntention rdfs:subClassOf :Intention.
+:AtomicIntention rdfs:subClassOf :Intention.
+:MomentBelief rdfs:subClassOf :Belief.
+:Belief rdfs:subClassOf :MentalMoment.
+:Intention rdfs:subClassOf :MentalMoment.
+:SocialSystem rdfs:subClassOf :Object.
+:Desire rdfs:subClassOf :MentalMoment.
+:Perception rdfs:subClassOf :MentalMoment.
+:TrustCalibrationCommunication rdfs:subClassOf :CommunicativeAct.
+:TrustCalibrationSignalMedia rdfs:subClassOf :Object.
+:SocialSystemParticipant rdfs:subClassOf :Agent.
+[ rdf:type owl:AllDisjointClasses ] owl:members (:ComplexIntention :AtomicIntention).
+:Intention owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:unionOf (:ComplexIntention :AtomicIntention)
+].
+[ rdf:type owl:AllDisjointClasses ] owl:members (:Object :Agent).
+[ rdf:type owl:AllDisjointClasses ] owl:members (:Desire :Intention :Belief :Perception).
+[ rdf:type owl:AllDisjointClasses ] owl:members (:TrustWarrantingSignal :UncertaintySignal).
+:TrustCalibrationSignal owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:unionOf (:TrustWarrantingSignal :UncertaintySignal)
+].
+:weight rdfs:domain :Influence;
+    rdfs:range xsd:int;
+    rdf:type owl:DatatypeProperty;
+    rdfs:subPropertyOf gufo:hasQualityValue;
+    rdfs:label "weight"@en.
+:dependsOnTrustee rdf:type owl:ObjectProperty;
+    rdfs:domain :GroundTrust;
+    rdfs:range :Trustee;
+    rdfs:label "depends on trustee"@en.
+:trusts rdf:type owl:ObjectProperty;
+    rdfs:domain :Trustor;
+    rdfs:range :Trustee;
+    rdfs:label "trusts"@en;
+    rdf:type gufo:MaterialRelationshipType.
+:isCounterpartOf_1 rdf:type owl:ObjectProperty;
+    rdfs:domain :TrustorClaim;
+    rdfs:range :TrusteeCommitment;
+    rdfs:label "is counterpart of"@en.
+:isCounterpartOf rdf:type owl:ObjectProperty;
+    rdfs:domain :TrusteeClaim;
+    rdfs:range :TrustorCommitment;
+    rdfs:label "is counterpart of"@en.
+:refersTo_2 rdf:type owl:ObjectProperty;
+    rdfs:domain :TrustCalibrationSignal;
+    rdfs:range :Disposition;
+    rdfs:label "refers to"@en.
+:refersTo_1 rdf:type owl:ObjectProperty;
+    rdfs:domain :TrustworthinessEvidence;
+    rdfs:range :Trustee;
+    rdfs:label "refers to"@en.
+:isAbout rdf:type owl:ObjectProperty;
+    rdfs:domain :TrustworthinessEvidence;
+    rdfs:range :Disposition;
+    rdfs:label "is about"@en.
+:performedAction rdf:type owl:ObjectProperty;
+    rdfs:domain :Trustor;
+    rdfs:range :TrustorAction;
+    rdfs:label "performed action"@en.
+:performedAction_1 rdf:type owl:ObjectProperty;
+    rdfs:domain :Trustee;
+    rdfs:range :TrusteeAction;
+    rdfs:label "performed action"@en.
+:refersTo rdf:type owl:ObjectProperty;
+    rdfs:domain :TrusteeAction;
+    rdfs:range :GroundTrust;
+    rdfs:label "refers to"@en.
+:motivatedBy rdf:type owl:ObjectProperty;
+    rdfs:domain :TrustorAction;
+    rdfs:range :Intention;
+    rdfs:label "motivated by"@en.
+:expressedIn rdf:type owl:ObjectProperty;
+    rdfs:domain :TrustCalibrationSignal;
+    rdfs:range :TrustCalibrationSignalMedia;
+    rdfs:label "expressed in"@en.
+:participates rdf:type owl:ObjectProperty;
+    rdfs:domain :SocialSystem;
+    rdfs:range :SocialSystemParticipant;
+    rdfs:label "participates"@en.
+:dependsOnSocialSystemParticipantTrustee rdf:type owl:ObjectProperty;
+    rdfs:domain :SocialSystemParticipantTrustee;
+    rdfs:range :SocialTrust;
+    rdfs:label "depends on social system participant trustee"@en.
+:groundedOn rdf:type owl:ObjectProperty;
+    rdfs:domain :InstitutionBasedTrust;
+    rdfs:range :SocialTrust;
+    rdfs:label "grounded on"@en.
+:hasPropositionalContent rdf:type owl:ObjectProperty;
+    rdfs:domain :TrustCalibrationCommunication;
+    rdfs:range :TrustCalibrationSignal;
+    rdfs:label "has propositional content"@en.
+:basedOnTrust rdf:type owl:ObjectProperty;
+    rdfs:domain :TrustorAction;
+    rdfs:range :GroundTrust;
+    rdfs:label "based on trust"@en.
+:GroundTrust gufo:isDerivedFrom :trusts.
+:MomentType gufo:categorizes :Moment.
+:hurtByLossSituation rdf:type owl:ObjectProperty;
+    rdfs:domain :LossSituation;
+    rdfs:range :Intention;
+    rdfs:label "hurt by loss situation"@en.
+:hurtByLossEvent rdf:type owl:ObjectProperty;
+    rdfs:domain :LossEvent;
+    rdfs:range :Intention;
+    rdfs:label "hurt by loss event"@en.
+:Trustor rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
+  owl:someValuesFrom :GroundTrust
+].
+:GroundTrust rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:inheresIn;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Trustor
+].
+:Trustee rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf :dependsOnTrustee ];
+  owl:someValuesFrom :GroundTrust
+].
+:GroundTrust rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty :dependsOnTrustee;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Trustee
+].
+:MomentBelief rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:externallyDependsOn;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :MomentType
+].
+:TrustedDelegation rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:mediates;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Trustor
+], [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:externallyDependsOn;
+  owl:someValuesFrom :WeakTrust
+], [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:mediates;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Trustee
+].
+:TrustorCommitment rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:inheresIn;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Trustor
+].
+:Trustor rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
+  owl:someValuesFrom :TrustorClaim
+].
+:TrustorClaim rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:inheresIn;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Trustor
+].
+:Trustee rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
+  owl:someValuesFrom :TrusteeCommitment
+].
+:TrusteeCommitment rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:inheresIn;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Trustee
+].
+:TrusteeClaim rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:inheresIn;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Trustee
+].
+:SocialSystemTrustee rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:externallyDependsOn ];
+  owl:someValuesFrom :InstitutionBasedTrust
+].
+:InstitutionBasedTrust rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:externallyDependsOn;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :SocialSystemTrustee
+].
+:GroundTrust rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :TrustDegree
+].
+:TrustDegree rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:inheresIn;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :GroundTrust
+].
+:MomentBelief rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :BeliefIntensity
+].
+:BeliefIntensity rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:inheresIn;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :MomentBelief
+].
+:DispositionBelief rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :PerformanceLevel
+].
+:PerformanceLevel rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:inheresIn;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :DispositionBelief
+].
+:DispositionBelief rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :ManifestationLikelihood
+].
+:ManifestationLikelihood rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:inheresIn;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :DispositionBelief
+].
+:TrustCalibrationCommunication rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:participatedIn ];
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Trustee
+].
+:TrustInfluence rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:mediates;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :GroundTrust
+].
+:Influence rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:mediates;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :MomentBelief
+].
+:MentalMomentInfluence rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:mediates;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :MentalMoment
+].
+:TrustworthinessEvidenceInfluence rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:mediates;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :TrustworthinessEvidence
+].
+:TrustCalibrationSignalInfluence rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:mediates;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :TrustCalibrationSignal
+].
+:TrustorAction rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:broughtAbout;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :ThreateningSituation
+].
+:TrusteeAction rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:broughtAbout;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :ThreateningSituation
+].
+:StrongTrust rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:externallyDependsOn;
+  owl:someValuesFrom :Agreement
+].
+:TrustCalibrationSignalMedia rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf :expressedIn ];
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :TrustCalibrationSignal
+].
+:TrustCalibrationSignal rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty :expressedIn;
+  owl:someValuesFrom :TrustCalibrationSignalMedia
+].
+:TrustCalibrationSignalMedia rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:participatedIn;
+  owl:someValuesFrom :TrustCalibrationCommunication
+].
+:Trustee rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
+  owl:someValuesFrom :Disposition
+].
+:Trustor rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
+  owl:someValuesFrom :Intention
+].
+:Agent rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
+  owl:someValuesFrom :MentalMoment
+].
+:MentalMoment rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:inheresIn;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Agent
+].
+:Agreement rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:mediates;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Trustor
+], [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:mediates;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :Trustee
+].
+:ThreatEvent rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:contributedToTrigger ];
+  owl:someValuesFrom :ThreateningSituation
+].
+:ThreateningSituation rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:contributedToTrigger;
+  owl:someValuesFrom :ThreatEvent
+].
+:LossEvent rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:historicallyDependsOn ];
+  owl:someValuesFrom :ThreatEvent
+].
+:ThreatEvent rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:historicallyDependsOn;
+  owl:someValuesFrom :LossEvent
+].
+:LossSituation rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:broughtAbout ];
+  owl:someValuesFrom :LossEvent
+].
+:LossEvent rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:broughtAbout;
+  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass :LossSituation
+].
