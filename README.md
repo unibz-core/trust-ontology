@@ -6,7 +6,7 @@ ONTrust is a well-founded reference ontology, specified in OntoUML, that formall
 
 * [/ontouml](/ontouml) contains files related to the conceptual version of ONTrust, which was modelled in OntoUML.
 * [/owl](/owl) contains files related to the gUFO-based implementation of ONTrust, represented in OWL.
-* [/owl](/owl/previous_version) contains files related to the previous version gUFO-based implementation of the ontology, formerly known as ROT.
+* [/owl/previous_version](/owl/previous_version) contains files related to the previous version gUFO-based implementation of the ontology, formerly known as ROT.
 
 
 ## Reusing .vpp files
@@ -39,6 +39,10 @@ ONTrust is a well-founded reference ontology, specified in OntoUML, that formall
 - Amaral G., Sales T.P., Guizzardi G., Almeida J.P.A., Porello D. (2020) **Modeling Trust in Enterprise Architecture: A Pattern Language for ArchiMate**. In: Grabis J., Bork D. (eds) The Practice of Enterprise Modeling. PoEM 2020. Lecture Notes in Business Information Processing, vol 400. Springer, Cham. [https://doi.org/10.1007/978-3-030-63479-7_6](https://doi.org/10.1007/978-3-030-63479-7_6)
 
 - Amaral G., Guizzardi R., Guizzardi G., Mylopoulos J. (2020) **Ontology-Based Modeling and Analysis of Trustworthiness Requirements: Preliminary Results**. In: Dobbie G., Frank U., Kappel G., Liddle S.W., Mayr H.C. (eds) Conceptual Modeling. ER 2020. Lecture Notes in Computer Science, vol 12400. Springer, Cham. [https://doi.org/10.1007/978-3-030-62522-1_25](https://doi.org/10.1007/978-3-030-62522-1_25)
+
+- Amaral G., Guizzardi R., Guizzardi G., Mylopoulos J. (2021) **Trustworthiness Requirements: The Pix Case Study**. In: Ghose, A., Horkoff, J., Silva Souza, V.E., Parsons, J., Evermann, J. (eds) Conceptual Modeling. ER 2021. Lecture Notes in Computer Science(), vol 13011. Springer, Cham. [https://doi.org/10.1007/978-3-030-89022-3_21](https://doi.org/10.1007/978-3-030-89022-3_21)
+
+- Amaral, G., Prince Sales, T., Guizzardi, G. (2022). **Ontological Foundations for Trust Dynamics: The Case of Central Bank Digital Currency Ecosystems**. In: Guizzardi, R., Ralyté, J., Franch, X. (eds) Research Challenges in Information Science. RCIS 2022. Lecture Notes in Business Information Processing, vol 446. Springer, Cham. [https://doi.org/10.1007/978-3-031-05760-1_21](https://doi.org/10.1007/978-3-031-05760-1_21)
 
 - Sales T.P., Baião F., Guizzardi G., Almeida J.P.A., Guarino N., Mylopoulos J. (2018) **The Common Ontology of Value and Risk**. In: Trujillo J. et al. (eds) Conceptual Modeling. ER 2018. Lecture Notes in Computer Science, vol 11157. Springer, Cham. [https://doi.org/10.1007/978-3-030-00847-5_11](https://doi.org/10.1007/978-3-030-00847-5_11)
 
